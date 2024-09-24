@@ -111,7 +111,7 @@ _JSONPOINTER_SUPPORTED_ROOT_VALUES = Union[
 ]
 _JSON__LOADS = Callable[[Union[str, bytes, bytearray]], _JSON_VALUE]
 _JSON__DUMPS = Callable[[_JSON_VALUE], str]
-)
+
 
 class JsonPatchException(Exception): ...
 class InvalidJsonPatch(JsonPatchException): ...
