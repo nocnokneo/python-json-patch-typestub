@@ -97,7 +97,7 @@ class INDEXABLE(typing.Protocol[_K_contra, _V_co]):
 _JSON_OBJECT_KEY = str
 _JSON_OBJECT = Mapping[_JSON_OBJECT_KEY, "_JSON_VALUE"]
 _JSON_ARRAY = Sequence["_JSON_VALUE"]
-_JSON_VALUE = Union[str, complex, _JSON_OBJECT, _JSON_ARRAY, bool, None]
+_JSON_VALUE = Union[str, int, float, bool, None, _JSON_OBJECT, _JSON_ARRAY]
 _JSONPOINTER_SUPPORTED_VALUES = Union[
     _JSON_VALUE,
     Mapping[_JSON_OBJECT_KEY, "_JSONPOINTER_SUPPORTED_VALUES"],
@@ -111,11 +111,6 @@ _JSONPOINTER_SUPPORTED_ROOT_VALUES = Union[
 ]
 _JSON__LOADS = Callable[[Union[str, bytes, bytearray]], _JSON_VALUE]
 _JSON__DUMPS = Callable[[_JSON_VALUE], str]
-_T_JSONPOINTER_SUPPORTED_ROOT_VALUES = TypeVar(
-    "_T_JSONPOINTER_SUPPORTED_ROOT_VALUES",
-    Mapping[_JSON_OBJECT_KEY, "_JSONPOINTER_SUPPORTED_VALUES"],
-    Sequence["_JSONPOINTER_SUPPORTED_VALUES"],
-    INDEXABLE[_JSON_OBJECT_KEY, "_JSONPOINTER_SUPPORTED_VALUES"],
 )
 
 class JsonPatchException(Exception): ...
